@@ -1,6 +1,6 @@
 resource "libvirt_cloudinit_disk" "init" {
   name = var.name
-  user_data = templatefile("${path.module}/user_data.tpl.yaml",
+  user_data = templatefile("${path.module}/user_data.tmpl",
     {
       vm_user        = var.username
       ssh_public_key = var.ssh_public_key
@@ -13,7 +13,7 @@ resource "libvirt_cloudinit_disk" "init" {
   })
 
   network_config = templatefile(
-    "${path.module}/network_data.tpl.yaml",
+    "${path.module}/network_data.tmpl",
     {
       ip      = var.ip
       gateway = var.gateway

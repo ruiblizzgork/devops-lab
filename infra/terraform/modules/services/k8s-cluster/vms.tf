@@ -9,7 +9,7 @@ module "master_node_vm" {
   network_name      = module.k8s_network.name
 }
 
-module "worker_node_vm" {
+module "worker_nodes_vm" {
   source = "../../infrastructure/vm"
 
   count = var.worker_node_count

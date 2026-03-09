@@ -5,3 +5,7 @@ output "name" {
 output "id" {
   value = libvirt_volume.cloudinit_disk.id
 }
+
+output "ip" {
+  value = var.ip
+}

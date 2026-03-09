@@ -1,43 +1,21 @@
-variable "pool_base_dir_path" {
-  type = string
-}
+locals {
+  config = yamldecode(file("${path.module}/../../../../config.yml"))
 
-variable "base_volume_name" {
-  type = string
-}
+  env_name = "local"
 
-variable "base_volume_url" {
-  type = string
-}
+  vms_username   = local.config.envs.local.user_data.username
+  ssh_public_key = file(local.config.envs.local.user_data.public_key_file_path)
 
-variable "k8s_worker_node_count" {
-  type = number
-}
+  pool_base_dir_path = local.config.envs.local.volumes.pool_base_dir_path
+  base_volume_name   = local.config.envs.local.volumes.base_volume_name
+  base_volume_url    = local.config.envs.local.volumes.base_volume_url
 
-variable "vms_username" {
-  type = string
-}
+  k8s_master_node_memory_in_MiB = local.config.envs.local.k8s-cluster.master_node.k8s_master_node_memory_in_MiB
+  k8s_master_node_vcpu          = local.config.envs.local.k8s-cluster.master_node.k8s_master_node_vcpu
 
-variable "ssh_public_key" {
-  type = string
-}
+  k8s_worker_node_count         = local.config.envs.local.k8s-cluster.workers_nodes.k8s_worker_node_count
+  k8s_worker_node_memory_in_MiB = local.config.envs.local.k8s-cluster.workers_nodes.k8s_worker_node_memory_in_MiB
+  k8s_worker_node_vcpu          = local.config.envs.local.k8s-cluster.workers_nodes.k8s_worker_node_vcpu
 
-variable "k8s_net_ip" {
-  type = string
-}
-
-variable "k8s_master_node_memory_in_MiB" {
-  type = number
-}
-
-variable "k8s_master_node_vcpu" {
-  type = number
-}
-
-variable "k8s_worker_node_memory_in_MiB" {
-  type = number
-}
-
-variable "k8s_worker_node_vcpu" {
-  type = number
+  k8s_net_ip = "192.168.123."
 }

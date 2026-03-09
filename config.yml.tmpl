@@ -1,0 +1,20 @@
+envs:
+  local:
+    user_data:
+      username: <username>
+      public_key_file_path: <~/.path/to/ssh/public/key.pub/>
+      private_key_file_path: <~/.path/to/ssh/private/key/>
+    
+    volumes:
+      pool_base_dir_path: </path/to/pool/base/dir/>
+      base_volume_name: <debian-13>
+      base_volume_url: <https://url>
+
+    k8s-cluster:
+      master_node:
+        k8s_master_node_memory_in_MiB: <2096>
+        k8s_master_node_vcpu: <2>
+      workers_nodes:
+        k8s_worker_node_count: <2>
+        k8s_worker_node_memory_in_MiB: <2096>
+        k8s_worker_node_vcpu: <2>
