@@ -17,5 +17,5 @@ locals {
   k8s_worker_node_memory_in_MiB = local.config.envs.local.k8s-cluster.workers_nodes.k8s_worker_node_memory_in_MiB
   k8s_worker_node_vcpu          = local.config.envs.local.k8s-cluster.workers_nodes.k8s_worker_node_vcpu
 
-  k8s_net_ip = "192.168.123."
+  k8s_net_ip = local.config.envs.local.k8s-cluster.k8s_net_ip
 }
