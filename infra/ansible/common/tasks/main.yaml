@@ -1,0 +1,14 @@
+- name: Test connection
+  ping:
+
+- name: Update apt cache
+  apt:
+    update_cache: yes
+
+- name: Upgrade system
+  apt:
+    upgrade: dist
+
+- name: Disable swap
+  command: swapoff -a
+  when: ansible_swaptotal_mb > 0
