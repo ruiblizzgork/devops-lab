@@ -31,7 +31,7 @@ module "cloudinit_master_node_volume" {
 
   name           = "master_node_cloudinit_volume"
   username       = var.vms_username
-  ssh_public_key = var.ssh_public_key
+  ssh_public_key = module.master_node_ssh_keys.public_key
   instance_id    = "master_node_cloudinit_volume_id"
   hostname       = "k8s-master-node"
   ip             = "${var.net_ip}10"
@@ -46,7 +46,7 @@ module "cloudinit_worker_node_volumes" {
 
   name           = "worker_node_cloudinit_volume-${count.index}"
   username       = var.vms_username
-  ssh_public_key = var.ssh_public_key
+  ssh_public_key = module.workers_nodes_ssh_keys[count.index].public_key
   instance_id    = "worker_node_cloudinit_volume_id-${count.index}"
   hostname       = "k8s-worker-node-${count.index}"
   ip             = "${var.net_ip}${count.index + 11}"

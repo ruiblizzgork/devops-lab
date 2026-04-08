@@ -5,6 +5,7 @@ crash.log
 *.tfvars
 
 .env
+.codex
 
 config.yml
 

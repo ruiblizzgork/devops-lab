@@ -3,8 +3,8 @@ locals {
 
   env_name = "local"
 
-  vms_username   = local.config.envs.local.user_data.username
-  ssh_public_key = file(local.config.envs.local.user_data.public_key_file_path)
+  vms_username  = local.config.envs.local.user_data.username
+  keys_dir_path = local.config.envs.local.user_data.keys_dir_path
 
   pool_base_dir_path = local.config.envs.local.volumes.pool_base_dir_path
   base_volume_name   = local.config.envs.local.volumes.base_volume_name

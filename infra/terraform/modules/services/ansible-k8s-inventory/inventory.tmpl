@@ -1,0 +1,11 @@
+[${env_name}_master_node]
+${master_node.name} ansible_host=${master_node.ip} ansible_ssh_private_key_file=${master_node_private_key_file_path}
+
+[${env_name}_worker_nodes]
+%{ for i, worker in workers_nodes ~}
+${worker.name} ansible_host=${worker.ip} ansible_ssh_private_key_file=${workers_nodes_private_key_file_path[i]}
+%{ endfor }
+
+[${env_name}_k8s_cluster:children]
+${env_name}_master_node
+${env_name}_worker_nodes

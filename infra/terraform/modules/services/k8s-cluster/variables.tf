@@ -28,7 +28,7 @@ variable "vms_username" {
   type = string
 }
 
-variable "ssh_public_key" {
+variable "keys_dir_path" {
   type = string
 }
 

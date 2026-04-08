@@ -1,3 +1,13 @@
+- name: Wait for SSH to be reachable
+  ansible.builtin.wait_for_connection:
+    delay: 10
+    sleep: 5
+    timeout: 300
+
+- name: Gather facts after SSH is ready
+  ansible.builtin.setup:
+
+  
 - name: Test connection
   ping:
 
@@ -11,4 +21,4 @@
 
 - name: Disable swap
   command: swapoff -a
-  when: ansible_swaptotal_mb > 0
+  when: ansible_facts["swaptotal_mb"] > 0

@@ -2,15 +2,15 @@ envs:
   local:
     user_data:
       username: <username>
-      public_key_file_path: <~/.path/to/ssh/public/key.pub/>
-      private_key_file_path: <~/.path/to/ssh/private/key/>
+      keys_dir_path: </path/to/generated/ssh/keys/dir/>
     
     volumes:
-      pool_base_dir_path: </path/to/pool/base/dir/>
+      pool_base_dir_path: /mnt/crypt_storage/LibvirtPools/
       base_volume_name: <debian-13>
       base_volume_url: <https://url>
 
     k8s-cluster:
+      k8s_net_ip: <"192.168.123.">
       master_node:
         k8s_master_node_memory_in_MiB: <2096>
         k8s_master_node_vcpu: <2>
