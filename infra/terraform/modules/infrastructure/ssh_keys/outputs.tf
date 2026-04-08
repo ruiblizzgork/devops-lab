@@ -1,9 +1,9 @@
 output "private_key_file_path" {
-  value = "${var.keys_dir_path}${var.keys_name}"
+  value = "${var.ssh_keys_dir_path}${var.key_name}"
 }
 
 output "public_key_file_path" {
-  value = "${var.keys_dir_path}${var.keys_name}.pub"
+  value = "${var.ssh_keys_dir_path}${var.key_name}.pub"
 }
 
 output "public_key" {

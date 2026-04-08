@@ -1,6 +1,6 @@
 variable "pool_name" {
   type    = string
-  default = "k8s-pool"
+  default = "k8s_pool"
 }
 
 variable "pool_type" {
@@ -24,28 +24,28 @@ variable "worker_node_count" {
   type = number
 }
 
-variable "vms_username" {
+variable "vm_username" {
   type = string
 }
 
-variable "keys_dir_path" {
+variable "ssh_keys_dir_path" {
   type = string
 }
 
 variable "network_name" {
   type    = string
-  default = "k8s-network"
+  default = "k8s_network"
 }
 
-variable "net_ip" {
+variable "network_base_ip" {
   type = string
 }
 
-variable "master_node_memory_in_MiB" {
+variable "master_node_memory_mib" {
   type = number
 }
 
-variable "worker_node_memory_in_MiB" {
+variable "worker_node_memory_mib" {
   type = number
 }
 

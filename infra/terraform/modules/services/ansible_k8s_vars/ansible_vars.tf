@@ -1,5 +1,5 @@
 resource "local_file" "ansible_vars" {
-  filename = var.filename
+  filename = var.output_file_path
 
   content = templatefile("${path.module}/ansible_vars.tmpl", {
     ansible_user               = var.ansible_user

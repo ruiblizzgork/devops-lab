@@ -1,7 +1,7 @@
 resource "libvirt_domain" "vm" {
   name        = var.name
   memory_unit = "MiB"
-  memory      = var.memory_in_MiB
+  memory      = var.memory_mib
   vcpu        = var.vcpu
   type        = "kvm"
   autostart   = true
@@ -15,8 +15,8 @@ resource "libvirt_domain" "vm" {
     loader_readonly = "yes"
     loader_type     = "pflash"
     nv_ram = {
-      nv_ram   = var.nv_ram_file_path
-      template = var.nv_ram_template_file_path
+      nv_ram   = var.nvram_file_path
+      template = var.nvram_template_file_path
     }
     boot_devices = [{ dev = "hd" }]
   }

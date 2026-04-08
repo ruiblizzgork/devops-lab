@@ -1,9 +1,9 @@
 resource "null_resource" "ansible" {
 
   depends_on = [
-    module.k8s-cluster,
-    module.ansible-k8s-inventory,
-    module.ansible-k8s-vars
+    module.k8s_cluster,
+    module.ansible_k8s_inventory,
+    module.ansible_k8s_vars
   ]
 
   provisioner "local-exec" {

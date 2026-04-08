@@ -2,19 +2,19 @@ envs:
   local:
     user_data:
       username: <username>
-      keys_dir_path: </path/to/generated/ssh/keys/dir/>
+      ssh_keys_dir_path: </path/to/generated/ssh/keys/dir/>
     
     volumes:
-      pool_base_dir_path: /mnt/crypt_storage/LibvirtPools/
-      base_volume_name: <debian-13>
-      base_volume_url: <https://url>
+      pool_dir_path: /mnt/crypt_storage/LibvirtPools/
+      base_name: <debian-13>
+      base_url: <https://url>
 
-    k8s-cluster:
-      k8s_net_ip: <"192.168.123.">
+    k8s_cluster:
+      network_base_ip: <"192.168.123.">
       master_node:
-        k8s_master_node_memory_in_MiB: <2096>
-        k8s_master_node_vcpu: <2>
-      workers_nodes:
-        k8s_worker_node_count: <2>
-        k8s_worker_node_memory_in_MiB: <2096>
-        k8s_worker_node_vcpu: <2>
+        memory_in_mib: <2096>
+        vcpu: <2>
+      worker_nodes:
+        count: <2>
+        memory_in_mib: <2096>
+        vcpu: <2>

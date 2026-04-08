@@ -1,4 +1,4 @@
-variable "filename" {
+variable "output_file_path" {
   type = string
 }
 
@@ -13,21 +13,21 @@ variable "master_node" {
   })
 }
 
-variable "workers_nodes" {
+variable "worker_nodes" {
   type = list(object({
     name = string
     ip   = string
   }))
 }
 
-variable "master_node_keys_files_paths" {
+variable "master_node_key_paths" {
   type = object({
     private_key_file_path = string
     public_key_file_path  = string
   })
 }
 
-variable "workers_nodes_keys_files_paths" {
+variable "worker_node_key_paths" {
   type = list(object({
     private_key_file_path = string
     public_key_file_path  = string
